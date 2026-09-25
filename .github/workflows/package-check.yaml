@@ -16,7 +16,7 @@ jobs:
     outputs:
       artifact-name: ${{ steps.build.outputs.artifact-name }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: build
         uses: hynek/build-and-inspect-python-package@v3.0.1
 
@@ -29,7 +29,7 @@ jobs:
       matrix:
         python-version: ["3.11", "3.12", "3.13", "3.14"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/download-artifact@v4
         with:
           name: ${{ needs.build.outputs.artifact-name }}
