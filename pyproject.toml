@@ -5,19 +5,57 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "q-alchemy-visualization"
 version = "0.1.0"
-description = "Renderer-neutral experiment diagrams and text/Matplotlib renderers for Q-Alchemy"
+description = "Renderer-neutral experiment diagrams and text and Matplotlib renderers for Q-Alchemy"
 readme = "README.md"
 requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "data cybernetics ssc GmbH" }]
+keywords = [
+  "quantum-computing",
+  "visualization",
+  "experiment-diagrams",
+  "matplotlib",
+  "q-alchemy",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Scientific/Engineering :: Visualization",
+  "Typing :: Typed",
+]
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/data-cybernetics/q-alchemy-visualization"
+Documentation = "https://github.com/data-cybernetics/q-alchemy-visualization#readme"
+Repository = "https://github.com/data-cybernetics/q-alchemy-visualization.git"
+Issues = "https://github.com/data-cybernetics/q-alchemy-visualization/issues"
 
 [project.optional-dependencies]
 mpl = ["matplotlib>=3.8"]
-dev = ["pytest>=9.0", "matplotlib>=3.8"]
+dev = [
+  "build>=1.2",
+  "matplotlib>=3.8",
+  "pytest>=8.0",
+  "twine>=5.0",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+include = ["q_alchemy.visualization*"]
 namespaces = true
+
+[tool.setuptools.package-data]
+"q_alchemy.visualization" = ["py.typed"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = "-ra"
 pythonpath = ["src"]
